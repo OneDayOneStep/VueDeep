@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            padding-top: 100px;
+            text-align: center;
+        }
+        * {
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="value">{{ value }}</div>
+
+<script src="./js/Observer.js"></script>
+<script src="./js/Watcher.js"></script>
+<script src="./js/SelfVue.js"></script>
+
+<script>
+
+    let ele = document.querySelector('#value');
+    let selfVue = new SelfVue({
+        value: 'hello world'
+    }, ele, 'value');
+
+    setTimeout(function () {
+        selfVue.data.value = 'Bye world';
+    }, 2000);
+
+</script>
+</body>
+</html>
